@@ -27,6 +27,6 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Start the server
+// Serve frontend static files`nconst path = require('path');`napp.use(express.static(path.join(__dirname, '../frontend')));`napp.get('*', (req, res) => {`n  res.sendFile(path.join(__dirname, '../frontend', 'index.html'));`n});`n`n// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
